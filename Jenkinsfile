@@ -28,13 +28,14 @@ pipeline {
    }
   }
 
-  stage('Deploy to Kubernetes') {
-   steps {
-    sh '''
-    kubectl --kubeconfig=/var/lib/jenkins/.kube/config set image deployment/web web=arifreza/webapp:latest -n cicd
-    '''
-   }
-  }
+ stage('Deploy to Kubernetes') {
+ steps {
+  sh '''
+  kubectl --kubeconfig=/var/lib/jenkins/.kube/config set image deployment/web nginx=arifreza/webapp:latest -n cicd
+  '''
+ }
+}
+
  }
 }
 
